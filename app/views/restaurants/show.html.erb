@@ -1,0 +1,21 @@
+<div class="container">
+  <h1><%= @restaurant.name %></h1>
+  Address: <%= @restaurant.address %><br>
+  Phone: <%= @restaurant.phone_number %><br>
+  Category: <%= @restaurant.category %> food
+</div>
+
+<div class="container">
+  <ul class="list-group">
+    <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item">
+        <%= review.content %> <br>
+        Rating: <%= review.rating %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div class="container">
+  Add a review to this restaurant: 
+  <%= render 'reviews/new', restaurant: @restaurant, review: @review%>
+</div>
